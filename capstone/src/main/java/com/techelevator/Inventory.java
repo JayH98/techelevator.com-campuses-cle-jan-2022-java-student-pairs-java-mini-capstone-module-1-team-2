@@ -8,25 +8,26 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Inventory {
-    public Inventory() throws FileNotFoundException {
+
+    //Where vending machine exists
+
+    public Inventory() {
+
+        String vendingMachineMenuPath = "vendingmachine.csv";
+        File menuFile = new File(vendingMachineMenuPath);
+        String line = "";
+        List<String[]> parsedInventory = new ArrayList<>();
+
+        try (Scanner menuInput = new Scanner(menuFile)) {
+            while (menuInput.hasNextLine()) {
+                line = menuInput.nextLine();
+                // Should look like Question-1|answer-1|answer-2|correct-answer*|answer-4
+                if (line.length() > 0 && line.contains("|")) {
+                    parsedInventory.add(line.split("\\|"));
+                }
+            }
+        } catch (IOException e) {
+            System.exit(1);
+        }
     }
-
-    String vendingMachineMenuPath = "vendingmachine.csv";
-    File menuFile = new File(vendingMachineMenuPath);
-    String line = "";
-    List<String[]> parsedInventory = new ArrayList<>();
-
-//    try (Scanner menuInput = new Scanner(menuFile)) {
-//    			while (menuInput.hasNextLine()) {
-//    				line = menuInput.nextLine();
-//    				// Should look like Question-1|answer-1|answer-2|correct-answer*|answer-4
-//    				if (line.length() > 0 && line.contains("|")) {
-//                        parsedInventory.add(line.split("\\|"));
-//    				}
-//    			}
-//    		}
-//    		catch (IOException e) {
-//    			System.exit(1);
-//    		}
-
 }

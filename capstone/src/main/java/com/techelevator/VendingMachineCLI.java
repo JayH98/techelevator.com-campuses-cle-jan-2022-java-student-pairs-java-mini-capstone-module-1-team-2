@@ -14,6 +14,8 @@ public class VendingMachineCLI {
 		this.menu = menu;
 	}
 
+	Inventory inventory = new Inventory();
+
 	public void run() {
 		while (true) {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
