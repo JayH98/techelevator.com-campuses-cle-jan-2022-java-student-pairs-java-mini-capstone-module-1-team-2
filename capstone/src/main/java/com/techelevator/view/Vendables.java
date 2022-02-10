@@ -34,5 +34,5 @@ public class Vendables {
     public void setItemSound(String itemSound) {
         this.itemSound = itemSound;
     }
-    
+
 }
