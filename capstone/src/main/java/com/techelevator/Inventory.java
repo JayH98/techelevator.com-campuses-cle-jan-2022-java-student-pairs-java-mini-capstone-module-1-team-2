@@ -5,13 +5,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
-public class Inventory {
+public class Inventory  {
 
     //Where vending machine exists
     List<String[]> parsedInventory = new ArrayList<>();
     Map<String, String> vendingMachineMap = new HashMap<>();
 
     public Inventory() {
+
 
         String vendingMachineMenuPath = "vendingmachine.csv";
         File menuFile = new File(vendingMachineMenuPath);

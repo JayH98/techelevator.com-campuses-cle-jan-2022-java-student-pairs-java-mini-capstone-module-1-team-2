@@ -2,21 +2,20 @@ package com.techelevator;
 
 import com.techelevator.view.Menu;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class VendingMachineCLI {
 
-	private List<String[]> stuff = new ArrayList<>();
+
 	Inventory inventory = new Inventory();
+	private List<String[]> stuff = inventory.getParsedInventory();
 
-	public void setStuff(List<String[]> parsedInventory) {
-		this.stuff = inventory.getParsedInventory();
-	}
 
-	String[] strings = {"hello", "goodbye"};
+//	public void setStuff(List<String[]> list ) {
+//		stuff = inventory.getParsedInventory();
+//	}
+
+
 
 
 
@@ -30,8 +29,8 @@ public class VendingMachineCLI {
 	public VendingMachineCLI(Menu menu) {
 		this.menu = menu;
 	}
-
-
+	public VendingMachineCLI() {
+	}
 
 	public void run() {
 		while (true) {
@@ -39,7 +38,8 @@ public class VendingMachineCLI {
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 				for (String[] stringOfItems : stuff){
-					System.out.println(stringOfItems.toString());
+					System.out.println(" * " + stringOfItems[0] + " * "
+							+ stringOfItems[1] + "  " + "  $" +stringOfItems[2]);
 				}
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
