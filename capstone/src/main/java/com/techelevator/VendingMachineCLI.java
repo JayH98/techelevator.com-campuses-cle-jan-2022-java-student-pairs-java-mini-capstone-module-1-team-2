@@ -8,7 +8,7 @@ public class VendingMachineCLI {
 
 
 	Inventory inventory = new Inventory();
-	private List<String[]> displayForVendingMachine = inventory.getParsedInventory();
+	private List<String[]> displayForVendingMachine = inventory.getListOfInventoryInStringArrays();
 
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
