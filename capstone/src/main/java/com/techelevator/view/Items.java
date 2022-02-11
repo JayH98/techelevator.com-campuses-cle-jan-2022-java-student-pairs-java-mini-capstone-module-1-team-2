@@ -31,6 +31,11 @@ public class Items implements Vendables {
         return itemSound;
     }
 
+    @Override
+    public double getInventoryQuantity() {
+        return 0;
+    }
+
     public void setItemSound(String itemSound) {
         this.itemSound = itemSound;
     }

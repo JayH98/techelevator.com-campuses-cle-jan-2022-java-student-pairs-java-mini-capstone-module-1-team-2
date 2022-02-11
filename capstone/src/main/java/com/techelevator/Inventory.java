@@ -1,5 +1,8 @@
 package com.techelevator;
 
+
+import com.techelevator.view.*;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -10,7 +13,7 @@ public class Inventory {
     //Where vending machine exists
     List<String[]> listOfInventoryInStringArrays = new ArrayList<>();
     Map<String, String> vendingMachineMap = new HashMap<>();
-//    Map<String, Vendables>
+    Map<String, Vendables> mapOfItems = new HashMap<>();
 
 
 
@@ -36,7 +39,27 @@ public class Inventory {
             System.exit(1);
         }
 
-        for ()
+        for (String[] strings : listOfInventoryInStringArrays){
+            double newPrice = Double.parseDouble(strings[2]);
+            for (int i = 0; i < 4; i++){
+                if (strings[3].equals("Chip")){
+                    Chips chips = new Chips(strings[1], newPrice, "Crunch Crunch, Yum!" );
+                    mapOfItems.put(strings[0], chips);
+                }
+                else if (strings[3].equals("Candy")){
+                    Candy candy = new Candy(strings[1], newPrice, "Munch Munch, Yum!");
+                    mapOfItems.put(strings[0], candy);
+                }
+                else if (strings[3].equals("Drinks")){
+                    Drinks drinks = new Drinks(strings[1], newPrice, "Glug Glug, Yum!");
+                    mapOfItems.put(strings[0], drinks);
+                }
+                else if (strings[3].equals("Gum")){
+                    Gum gum = new Gum(strings[1], newPrice, "Chew Chew, Yum!");
+                    mapOfItems.put(strings[0], gum);
+                }
+            }
+        }
 
 
 

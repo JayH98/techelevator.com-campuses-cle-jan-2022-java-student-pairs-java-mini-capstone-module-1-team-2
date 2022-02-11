@@ -18,9 +18,7 @@ public class Gum extends Items implements Vendables {
     }
 
 
-    public String getItemName(){
-        return ;
-    }
+
 
 
 }
