@@ -8,15 +8,7 @@ public class VendingMachineCLI {
 
 
 	Inventory inventory = new Inventory();
-	private List<String[]> stuff = inventory.getParsedInventory();
-
-
-//	public void setStuff(List<String[]> list ) {
-//		stuff = inventory.getParsedInventory();
-//	}
-
-
-
+	private List<String[]> displayForVendingMachine = inventory.getParsedInventory();
 
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
@@ -37,7 +29,10 @@ public class VendingMachineCLI {
 			String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 
 			if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
-				for (String[] stringOfItems : stuff){
+
+//				inventory.getDisplay;
+
+				for (String[] stringOfItems : displayForVendingMachine){
 					System.out.println(" * " + stringOfItems[0] + " * "
 							+ stringOfItems[1] + "  " + "  $" +stringOfItems[2]);
 				}

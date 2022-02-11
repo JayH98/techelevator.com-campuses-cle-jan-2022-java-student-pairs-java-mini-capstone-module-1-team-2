@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.*;
 
-public class Inventory  {
+public class Inventory {
 
     //Where vending machine exists
     List<String[]> parsedInventory = new ArrayList<>();
@@ -22,7 +22,7 @@ public class Inventory  {
         try (Scanner menuInput = new Scanner(menuFile)) {
             while (menuInput.hasNextLine()) {
                 line = menuInput.nextLine();
-                // Should look like  Location| Item name | Price | Item Class
+                // Should look like  Location | Item name | Price | Item Class
                 if (line.length() > 0 && line.contains("|")) {
                     parsedInventory.add(line.split("\\|"));
                 }
@@ -45,4 +45,12 @@ public class Inventory  {
     public Map<String, String> getVendingMachineMap() {
         return vendingMachineMap;
     }
-}
+
+//    public getDisplay(){
+//        for (String[] stringOfItems : parsedInventory) {
+//            System.out.println(" * " + stringOfItems[0] + " * "
+//                    + stringOfItems[1] + "  " + "  $" + stringOfItems[2]);
+//        }
+
+    }
+
