@@ -71,6 +71,8 @@ public class Inventory {
         return vendingMachineMap;
     }
 
-
+    public Map<String, Vendables> getMapOfItems() {
+        return mapOfItems;
     }
+}
 

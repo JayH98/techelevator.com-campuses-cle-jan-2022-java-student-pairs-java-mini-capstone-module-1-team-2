@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import com.techelevator.view.Menu;
+import com.techelevator.view.Vendables;
 
 import java.util.*;
 
@@ -10,6 +11,8 @@ public class VendingMachineCLI {
 	Inventory inventory = new Inventory();
 	private List<String[]> displayForVendingMachine = inventory.getListOfInventoryInStringArrays();
 
+//	Map<item location, item price/quantity/sound/name>
+	Map<String, Vendables> sale = inventory.getMapOfItems(); // = Map of items in vending machine
 
 	private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
 	private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
