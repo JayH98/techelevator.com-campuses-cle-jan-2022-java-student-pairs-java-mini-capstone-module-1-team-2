@@ -33,7 +33,8 @@ public class Inventory {
 
         for (String[] items : listOfInventoryInStringArrays) {
             for (int i = 0; i < items.length; i++) {
-                vendingMachineMap.put(items[0], items[1]);
+                vendingMachineMap.put(items[0], items[2]);
+
             }
         }
     }
@@ -45,6 +46,12 @@ public class Inventory {
     public Map<String, String> getVendingMachineMap() {
         return vendingMachineMap;
     }
+
+
+
+
+
+
 
 //    public getDisplay(){
 //        for (String[] stringOfItems : parsedInventory) {

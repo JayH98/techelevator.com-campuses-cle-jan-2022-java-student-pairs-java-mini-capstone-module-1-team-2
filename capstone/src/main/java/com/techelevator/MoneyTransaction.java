@@ -1,6 +1,8 @@
 package com.techelevator;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Money {
+public class MoneyTransaction {
 
 
     private final double dollar = 1.00;
@@ -13,6 +15,22 @@ public class Money {
     private final double changeQuarter = 0.25;
 
 
+    Inventory inventory = new Inventory();
+    Map<String, String> sales = inventory.getVendingMachineMap();
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
     /*
 
 
@@ -22,4 +40,4 @@ public class Money {
 
 
 
-}
+
