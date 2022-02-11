@@ -8,7 +8,7 @@ public class Vendables {
     public Vendables (String itemName, double itemPrice, String itemSound) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
-        this.itemSound =   itemSound;
+        this.itemSound = itemSound;
     }
 
     public String getItemName() {

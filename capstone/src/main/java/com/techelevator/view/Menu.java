@@ -1,19 +1,33 @@
 package com.techelevator.view;
 
+import com.techelevator.Inventory;
+
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Menu {
 
 	private PrintWriter out;
 	private Scanner in;
+	private Map<String, String> vendingMachine = new HashMap<>();
+	Inventory inventory = new Inventory();
+
+	public void setVendingMachine(Map<String, String> vendingMachine) {
+		this.vendingMachine = inventory.getVendingMachineMap();
+	}
 
 	public Menu(InputStream input, OutputStream output) {
 		this.out = new PrintWriter(output);
 		this.in = new Scanner(input);
 	}
+
+
+
+
 
 	public Object getChoiceFromOptions(Object[] options) {
 		Object choice = null;
