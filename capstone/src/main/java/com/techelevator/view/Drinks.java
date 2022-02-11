@@ -1,11 +1,9 @@
 package com.techelevator.view;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class Drinks extends Vendables {
+public class Drinks extends Items {
 
     Map<String, Double> drinks = new HashMap<String, Double>();
 

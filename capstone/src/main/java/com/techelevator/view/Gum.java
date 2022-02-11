@@ -5,11 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Gum extends Vendables {
+public class Gum extends Items implements Vendables {
 
-    Map<String, Double> gum = new HashMap<String, Double>();
-
-    List<Gum> gums = new ArrayList<>();
 
     public Gum(String itemName, double itemPrice, String itemSound) {
         super(itemName, itemPrice, itemSound);
@@ -20,12 +17,9 @@ public class Gum extends Vendables {
         super.setItemSound("Chew Chew, Yum!");
     }
 
-    public Map<String, Double> getGum() {
-        return gum;
-    }
 
-    public void setGum(Map<String, Double> drinks) {
-        this.gum = drinks;
+    public String getItemName(){
+        return ;
     }
 
 

@@ -10,6 +10,11 @@ public class Inventory {
     //Where vending machine exists
     List<String[]> listOfInventoryInStringArrays = new ArrayList<>();
     Map<String, String> vendingMachineMap = new HashMap<>();
+//    Map<String, Vendables>
+
+
+
+
 
     public Inventory() {
 
@@ -30,6 +35,11 @@ public class Inventory {
         } catch (IOException e) {
             System.exit(1);
         }
+
+        for ()
+
+
+
 
         for (String[] items : listOfInventoryInStringArrays) {
             for (int i = 0; i < items.length; i++) {

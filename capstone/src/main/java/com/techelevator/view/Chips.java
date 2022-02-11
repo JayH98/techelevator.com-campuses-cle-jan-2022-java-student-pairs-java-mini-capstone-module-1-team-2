@@ -3,7 +3,7 @@ package com.techelevator.view;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Chips extends Vendables {
+public class Chips extends Items {
 
     Map<String, Double> chips = new HashMap<String, Double>();
 

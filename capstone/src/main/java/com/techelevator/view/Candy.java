@@ -3,7 +3,7 @@ package com.techelevator.view;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Candy extends Vendables {
+public class Candy extends Items {
 
     Map<String, Double> candy = new HashMap<String, Double>();
 
