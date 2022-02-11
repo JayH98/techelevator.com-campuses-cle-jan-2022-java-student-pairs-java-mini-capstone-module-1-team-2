@@ -5,24 +5,13 @@ import java.util.Map;
 
 public class Candy extends Items {
 
-    Map<String, Double> candy = new HashMap<String, Double>();
-
-    public Candy(String itemName, double itemPrice, String itemSound) {
-        super(itemName, itemPrice, itemSound);
+    public Candy(String itemName, double itemPrice, String itemSound, int inventoryQuantity) {
+        super(itemName, itemPrice, itemSound, inventoryQuantity);
     }
 
     @Override
     public void setItemSound(String itemSound) {
         super.setItemSound("Munch Munch, Yum!");
     }
-
-    public Map<String, Double> getCandy() {
-        return candy;
-    }
-
-    public void setCandy(Map<String, Double> drinks) {
-        this.candy = drinks;
-    }
-
 
 }

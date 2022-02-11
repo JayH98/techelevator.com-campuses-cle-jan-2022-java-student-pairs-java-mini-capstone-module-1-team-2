@@ -20,24 +20,5 @@ public class MoneyTransaction {
 
 
 
-
-
-
-
     }
-
-
-
-
-
-
-    /*
-
-
-
-
-     */
-
-
-
 

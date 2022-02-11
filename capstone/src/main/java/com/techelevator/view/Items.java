@@ -4,11 +4,13 @@ public class Items implements Vendables {
     private String itemName;
     private double itemPrice;
     private String itemSound;
+    private int inventoryQuantity;
 
-    public Items(String itemName, double itemPrice, String itemSound) {
+    public Items(String itemName, double itemPrice, String itemSound, int inventoryQuantity) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemSound = itemSound;
+        this.inventoryQuantity = inventoryQuantity;
     }
 
     public String getItemName() {
@@ -32,8 +34,8 @@ public class Items implements Vendables {
     }
 
     @Override
-    public double getInventoryQuantity() {
-        return 0;
+    public int getInventoryQuantity() {
+        return inventoryQuantity;
     }
 
     public void setItemSound(String itemSound) {

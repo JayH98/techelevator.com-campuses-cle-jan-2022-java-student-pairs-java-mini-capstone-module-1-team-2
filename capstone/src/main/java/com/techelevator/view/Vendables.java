@@ -5,7 +5,7 @@ public interface Vendables {
     String getItemName();
     double getItemPrice();
     String getItemSound();
-    double getInventoryQuantity();
+    int getInventoryQuantity();
 
 
 }

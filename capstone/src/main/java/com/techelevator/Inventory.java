@@ -15,17 +15,11 @@ public class Inventory {
     Map<String, String> vendingMachineMap = new HashMap<>();
     Map<String, Vendables> mapOfItems = new HashMap<>();
 
-
-
-
-
     public Inventory() {
-
 
         String vendingMachineMenuPath = "vendingmachine.csv";
         File menuFile = new File(vendingMachineMenuPath);
         String line = "";
-
 
         try (Scanner menuInput = new Scanner(menuFile)) {
             while (menuInput.hasNextLine()) {
@@ -43,26 +37,23 @@ public class Inventory {
             double newPrice = Double.parseDouble(strings[2]);
             for (int i = 0; i < 4; i++){
                 if (strings[3].equals("Chip")){
-                    Chips chips = new Chips(strings[1], newPrice, "Crunch Crunch, Yum!" );
+                    Chips chips = new Chips(strings[1], newPrice, "Crunch Crunch, Yum!", 5);
                     mapOfItems.put(strings[0], chips);
                 }
                 else if (strings[3].equals("Candy")){
-                    Candy candy = new Candy(strings[1], newPrice, "Munch Munch, Yum!");
+                    Candy candy = new Candy(strings[1], newPrice, "Munch Munch, Yum!", 5);
                     mapOfItems.put(strings[0], candy);
                 }
                 else if (strings[3].equals("Drinks")){
-                    Drinks drinks = new Drinks(strings[1], newPrice, "Glug Glug, Yum!");
+                    Drinks drinks = new Drinks(strings[1], newPrice, "Glug Glug, Yum!", 5);
                     mapOfItems.put(strings[0], drinks);
                 }
                 else if (strings[3].equals("Gum")){
-                    Gum gum = new Gum(strings[1], newPrice, "Chew Chew, Yum!");
+                    Gum gum = new Gum(strings[1], newPrice, "Chew Chew, Yum!", 5);
                     mapOfItems.put(strings[0], gum);
                 }
             }
         }
-
-
-
 
         for (String[] items : listOfInventoryInStringArrays) {
             for (int i = 0; i < items.length; i++) {
@@ -80,17 +71,6 @@ public class Inventory {
         return vendingMachineMap;
     }
 
-
-
-
-
-
-
-//    public getDisplay(){
-//        for (String[] stringOfItems : parsedInventory) {
-//            System.out.println(" * " + stringOfItems[0] + " * "
-//                    + stringOfItems[1] + "  " + "  $" + stringOfItems[2]);
-//        }
 
     }
 
