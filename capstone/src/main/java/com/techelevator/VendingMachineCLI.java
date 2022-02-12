@@ -54,7 +54,7 @@ public class VendingMachineCLI {
 				// do purchase
 					while (true) {
 						System.out.println();
-						System.out.println("Current money provided: " + money.getBalance());
+						System.out.println("Current money left in machine: $" + money.getBalance());
 						// all vending math in here!!!
 						String customerPurchase = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
 						if (customerPurchase.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {

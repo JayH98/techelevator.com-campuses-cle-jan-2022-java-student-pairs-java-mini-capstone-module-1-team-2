@@ -42,7 +42,7 @@ public class Inventory {
                 } else if (strings[3].equals("Candy")) {
                     Candy candy = new Candy(strings[1], newPrice, "Munch Munch, Yum!", 5);
                     mapOfItems.put(strings[0], candy);
-                } else if (strings[3].equals("Drinks")) {
+                } else if (strings[3].equals("Drink")) {
                     Drinks drinks = new Drinks(strings[1], newPrice, "Glug Glug, Yum!", 5);
                     mapOfItems.put(strings[0], drinks);
                 } else if (strings[3].equals("Gum")) {
