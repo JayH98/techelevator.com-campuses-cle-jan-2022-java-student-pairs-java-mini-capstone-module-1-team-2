@@ -54,4 +54,25 @@ public class Menu {
 		out.print(System.lineSeparator() + "Please choose an option >>> ");
 		out.flush();
 	}
+
+
+	private double getUsersMoney (String askForMoney) {
+		double money = 0.0;
+		while (true) {
+			try {
+				System.out.println();
+				System.out.println(askForMoney);
+				String input = in.nextLine();
+				money = Double.parseDouble(input);
+				if (money != 1.0 && money != 2.0 && money != 5.0 && money!= 10.00) {
+					System.out.println("Please only enter dollar bills of $1, $2, $5, $10.");
+					continue;
+				}
+			} catch (Exception e) {
+				System.out.println("You entered an invalid money amount. Please try again.");
+				continue;
+			} return money;
+		}
+	}
+
 }

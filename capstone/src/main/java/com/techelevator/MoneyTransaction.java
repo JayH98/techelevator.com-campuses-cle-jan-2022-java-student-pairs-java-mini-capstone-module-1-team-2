@@ -6,10 +6,18 @@ import java.util.Map;
 
 public class MoneyTransaction {
 
+    public int balance;
 
-
-//    public double feedMoney()
-
-
+    public MoneyTransaction(int balance) {
+        this.balance = balance;
     }
 
+    public int getBalance() {
+        return balance;
+    }
+
+    public void setBalance(int balance) {
+        this.balance = balance;
+    }
+
+}

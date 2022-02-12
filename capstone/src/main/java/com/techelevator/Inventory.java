@@ -20,7 +20,7 @@ public class Inventory {
         String vendingMachineMenuPath = "vendingmachine.csv";
         File menuFile = new File(vendingMachineMenuPath);
         String line = "";
-
+//Reads the user's
         try (Scanner menuInput = new Scanner(menuFile)) {
             while (menuInput.hasNextLine()) {
                 line = menuInput.nextLine();
