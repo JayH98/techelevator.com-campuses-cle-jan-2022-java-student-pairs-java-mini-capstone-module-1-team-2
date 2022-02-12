@@ -59,7 +59,7 @@ public class Menu {
 		out.flush();
 	}
 
-	public double getUsersMoney (String askForMoney) {
+	public double getUsersMoney (String askForMoney) {		// Sets valid values for user money in double
 		double money = 0.0;
 		while (true) {
 			try {
@@ -71,15 +71,11 @@ public class Menu {
 					System.out.println("Please only enter dollar bills of $1, $2, $5, $10.");
 					continue;
 				}
-			} catch (Exception e) {
+			} catch (Exception e) {		// prints error message for none number inputs
 				System.out.println("You entered an invalid money amount. Please try again.");
 				continue;
 			} return money;
 		}
-//		public String userString(String userMessage) {
-//			System.out.println();
-//			System.out.println(userMessage);
-//			String input =
 		}
 	}
 

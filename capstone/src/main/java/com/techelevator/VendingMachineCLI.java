@@ -59,8 +59,9 @@ public class VendingMachineCLI {
 							System.out.print("Please only enter dollar bills of $1, $2, $5, $10.");
 							double moneyReceived = menu.getUsersMoney("Please enter amount");
 							money.setBalance(moneyReceived);
-
 						}
+						
+
 
 
 

@@ -11,16 +11,15 @@ import java.util.*;
 public class Inventory {
 
     //Where vending machine exists
-    List<String[]> listOfInventoryInStringArrays = new ArrayList<>();
-    Map<String, String> vendingMachineMap = new HashMap<>();
-    Map<String, Vendables> mapOfItems = new HashMap<>();
+    List<String[]> listOfInventoryInStringArrays = new ArrayList<>();   // Array of Strings for items in vending machine
+    Map<String, Vendables> mapOfItems = new HashMap<>();        // Creating new Map<locations, Vendables(interface)> of items in vending machine
 
     public Inventory() {
 
-        String vendingMachineMenuPath = "vendingmachine.csv";
+        String vendingMachineMenuPath = "vendingmachine.csv";       // Calling the csv file that contains vendadable items
         File menuFile = new File(vendingMachineMenuPath);
         String line = "";
-//Reads the user's
+//Reads the user's input
         try (Scanner menuInput = new Scanner(menuFile)) {
             while (menuInput.hasNextLine()) {
                 line = menuInput.nextLine();
@@ -33,42 +32,28 @@ public class Inventory {
             System.exit(1);
         }
 
-        for (String[] strings : listOfInventoryInStringArrays){
+        for (String[] strings : listOfInventoryInStringArrays) {     // Array of Strings that contains the menu items
             double newPrice = Double.parseDouble(strings[2]);
-            for (int i = 0; i < 4; i++){
-                if (strings[3].equals("Chip")){
+            for (int i = 0; i < 4; i++) {
+                if (strings[3].equals("Chip")) {
                     Chips chips = new Chips(strings[1], newPrice, "Crunch Crunch, Yum!", 5);
                     mapOfItems.put(strings[0], chips);
-                }
-                else if (strings[3].equals("Candy")){
+                } else if (strings[3].equals("Candy")) {
                     Candy candy = new Candy(strings[1], newPrice, "Munch Munch, Yum!", 5);
                     mapOfItems.put(strings[0], candy);
-                }
-                else if (strings[3].equals("Drinks")){
+                } else if (strings[3].equals("Drinks")) {
                     Drinks drinks = new Drinks(strings[1], newPrice, "Glug Glug, Yum!", 5);
                     mapOfItems.put(strings[0], drinks);
-                }
-                else if (strings[3].equals("Gum")){
+                } else if (strings[3].equals("Gum")) {
                     Gum gum = new Gum(strings[1], newPrice, "Chew Chew, Yum!", 5);
                     mapOfItems.put(strings[0], gum);
                 }
-            }
-        }
-
-        for (String[] items : listOfInventoryInStringArrays) {
-            for (int i = 0; i < items.length; i++) {
-                vendingMachineMap.put(items[0], items[2]);
-
             }
         }
     }
 
     public List<String[]> getListOfInventoryInStringArrays() {
         return listOfInventoryInStringArrays;
-    }
-
-    public Map<String, String> getVendingMachineMap() {
-        return vendingMachineMap;
     }
 
     public Map<String, Vendables> getMapOfItems() {
