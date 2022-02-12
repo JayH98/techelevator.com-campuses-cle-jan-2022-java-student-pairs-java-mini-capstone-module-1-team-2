@@ -66,6 +66,20 @@ public class VendingMachineCLI {
 							String selection = menu.userString("Please select the item you'd like to purchase");
 							selection = selection.toUpperCase();
 							Map<String, Vendables> slots = inventory.mapOfItems;
+							Vendables itemPicked = slots.get(selection);
+							Customer customer = new Customer();
+							if (customer.getItemQuantity(selection) == null) {
+								customer.setInitialItems(selection);
+							}
+							if (customer.getItemQuantity(selection) >=0 && customer.getItemQuantity(selection) <5) {
+								if (money.getBalance() >= itemPicked.getItemPrice()) {
+									double moneyToSubtract = (money.getBalance()- itemPicked.getItemPrice());
+									money.setBalance(moneyToSubtract);
+									//ToDo add the C1 - C5 items to be able to purchase
+								} else {
+									System.out.println("You need to enter more money.");
+								}
+							}
 						}
 
 

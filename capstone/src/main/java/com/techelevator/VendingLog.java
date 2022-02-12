@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class Vending {
+public class VendingLog {
     //Writes to our log
 
 }

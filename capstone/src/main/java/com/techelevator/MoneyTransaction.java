@@ -8,11 +8,12 @@ import java.util.Map;
 public class MoneyTransaction {
 
     Menu menu = new Menu();
-
+ //ToDo find a way to change balance to BigDecimal
     public double balance = 0.0;
 
-    public void Transaction(double balance) {
-        this.balance = balance;
+    public void Transaction(double money) {
+        balance = getBalance() - money;
+
     }
 
     public double getBalance() {
@@ -20,7 +21,9 @@ public class MoneyTransaction {
     }
 
     public void setBalance(double vendingBalance) {
-        balance += vendingBalance;
+        balance = vendingBalance;
     }
+
+
 
 }
