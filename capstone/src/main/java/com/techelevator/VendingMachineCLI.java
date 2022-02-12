@@ -60,7 +60,13 @@ public class VendingMachineCLI {
 							double moneyReceived = menu.getUsersMoney("Please enter amount");
 							money.setBalance(moneyReceived);
 						}
-						
+						else if (customerPurchase.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
+							String selection = menu.userString("Please select the item you'd like to purchase");
+
+
+
+
+						}
 
 
 
