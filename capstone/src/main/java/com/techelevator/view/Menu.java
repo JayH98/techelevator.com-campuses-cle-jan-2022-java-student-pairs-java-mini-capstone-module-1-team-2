@@ -56,7 +56,7 @@ public class Menu {
 	}
 
 
-	private double getUsersMoney (String askForMoney) {
+	public double getUsersMoney (String askForMoney) {
 		double money = 0.0;
 		while (true) {
 			try {

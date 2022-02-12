@@ -51,11 +51,11 @@ public class VendingMachineCLI {
 
 			} else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
 				// do purchase
-//					while (true) {
-//						System.out.println();
-//						System.out.println("Current money provided: " + currencyFormat.format());
-//
-//					}
+					while (true) {
+						System.out.println();
+						System.out.println("Current money provided: " + menu.getUsersMoney() );
+
+					}
 			}
 		}
 	}
