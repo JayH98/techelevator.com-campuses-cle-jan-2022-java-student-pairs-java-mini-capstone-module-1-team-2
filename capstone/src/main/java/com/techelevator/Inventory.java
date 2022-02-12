@@ -52,10 +52,11 @@ public class Inventory {
             }
         }
     }
-
-    public Vendables pickItem(String itemLocation) {
-        int itemPicked = items.getInventoryQuantity();
-    }
+//
+//    public Vendables pickItem(String itemLocation) {
+//        Vendables itemPicked = mapOfItems.get(itemLocation);
+//        int itemQuantity = itemPicked.getInventoryQuantity();
+//        mapOfItems.put(itemLocation, itemPicked);
 
     public List<String[]> getListOfInventoryInStringArrays() {
         return listOfInventoryInStringArrays;

@@ -66,20 +66,6 @@ public class VendingMachineCLI {
 							String selection = menu.userString("Please select the item you'd like to purchase");
 							selection = selection.toUpperCase();
 							Map<String, Vendables> slots = inventory.mapOfItems;
-							if (slots.containsKey(selection)) {
-//								if (slots.containsKey(selection)) {
-//									Vendables itemPicked = slots.
-								}
-
-
-
-
-								// if getInventoryQuantity = 0
-									"Please select another item"
-							}
-
-
-
 						}
 
 
