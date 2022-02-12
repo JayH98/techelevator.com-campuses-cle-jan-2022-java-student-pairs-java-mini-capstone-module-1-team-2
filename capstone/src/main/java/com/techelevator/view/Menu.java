@@ -19,6 +19,10 @@ public class Menu {
 		this.in = new Scanner(input);
 	}
 
+	public Menu() {
+
+	}
+
 	public Object getChoiceFromOptions(Object[] options) {
 		Object choice = null;
 		while (choice == null) {
@@ -55,7 +59,6 @@ public class Menu {
 		out.flush();
 	}
 
-
 	public double getUsersMoney (String askForMoney) {
 		double money = 0.0;
 		while (true) {
@@ -73,6 +76,10 @@ public class Menu {
 				continue;
 			} return money;
 		}
+//		public String userString(String userMessage) {
+//			System.out.println();
+//			System.out.println(userMessage);
+//			String input =
+		}
 	}
 
-}

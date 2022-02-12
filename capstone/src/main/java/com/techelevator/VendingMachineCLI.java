@@ -2,8 +2,6 @@ package com.techelevator;
 
 import com.techelevator.view.Menu;
 import com.techelevator.view.Vendables;
-
-import java.text.NumberFormat;
 import java.util.*;
 
 public class VendingMachineCLI {
@@ -29,6 +27,7 @@ public class VendingMachineCLI {
 
 
 	private Menu menu;
+	MoneyTransaction money = new MoneyTransaction();
 
 
 	public VendingMachineCLI(Menu menu) {
@@ -53,9 +52,26 @@ public class VendingMachineCLI {
 				// do purchase
 					while (true) {
 						System.out.println();
-						System.out.println("Current money provided: " + menu.getUsersMoney() );
+						System.out.println("Current money provided: " + money.getBalance());
+						// all vending math in here!!!
+						String customerPurchase = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
+						if (customerPurchase.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
+							System.out.print("Please only enter dollar bills of $1, $2, $5, $10.");
+							double moneyReceived = menu.getUsersMoney("Please enter amount");
+							money.setBalance(moneyReceived);
+
+						}
+
+
+
+
+
+
+
 
 					}
+			} else if (choice.equals(MAIN_MENU_OPTION_LEAVE)) {
+				System.exit(1);
 			}
 		}
 	}
