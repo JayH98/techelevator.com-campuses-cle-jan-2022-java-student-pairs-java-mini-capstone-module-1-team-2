@@ -14,6 +14,7 @@ public class Inventory {
     List<String[]> listOfInventoryInStringArrays = new ArrayList<>();   // Array of Strings for items in vending machine
     Map<String, Vendables> mapOfItems = new HashMap<>();        // Creating new Map<locations, Vendables(interface)> of items in vending machine
 
+    Items items = new Items();
     public Inventory() {
 
         String vendingMachineMenuPath = "vendingmachine.csv";       // Calling the csv file that contains vendadable items
@@ -50,6 +51,10 @@ public class Inventory {
                 }
             }
         }
+    }
+
+    public Vendables pickItem(String itemLocation) {
+        int itemPicked = items.getInventoryQuantity();
     }
 
     public List<String[]> getListOfInventoryInStringArrays() {

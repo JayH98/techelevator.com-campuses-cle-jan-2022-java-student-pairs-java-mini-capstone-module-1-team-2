@@ -2,6 +2,8 @@ package com.techelevator;
 
 import com.techelevator.view.Menu;
 import com.techelevator.view.Vendables;
+
+import javax.swing.*;
 import java.util.*;
 
 public class VendingMachineCLI {
@@ -62,7 +64,19 @@ public class VendingMachineCLI {
 						}
 						else if (customerPurchase.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
 							String selection = menu.userString("Please select the item you'd like to purchase");
+							selection = selection.toUpperCase();
+							Map<String, Vendables> slots = inventory.mapOfItems;
+							if (slots.containsKey(selection)) {
+//								if (slots.containsKey(selection)) {
+//									Vendables itemPicked = slots.
+								}
 
+
+
+
+								// if getInventoryQuantity = 0
+									"Please select another item"
+							}
 
 
 

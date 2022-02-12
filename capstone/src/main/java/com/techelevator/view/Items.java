@@ -13,6 +13,10 @@ public class Items implements Vendables {
         this.inventoryQuantity = inventoryQuantity;
     }
 
+    public Items() {
+
+    }
+
     public String getItemName() {
         return itemName;
     }
