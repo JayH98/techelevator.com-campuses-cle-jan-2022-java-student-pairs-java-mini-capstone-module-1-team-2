@@ -14,20 +14,40 @@ import java.util.Map;
 public class CustomerTest {
 
     @Test
-    public void does_CustomerMap_increment_inventory_count(){
+    public void does_setItemsCustomerHas_increment_inventory_count(){
 
         //arrange
         Customer customer = new Customer();
 
-        Map<String, Integer> testMap = new HashMap<>();
 
 
+
+        String location1 = "A1";
+        String location2 = "A1";
+        String location3 = "A1";
+        String location4 = "A1";
+        String location5 = "A1";
+        String location6 = "A1";
         //act
 
+        customer.setItemsCustomerHas(location1);
+        customer.setItemsCustomerHas(location2);
+        customer.setItemsCustomerHas(location3);
+        customer.setItemsCustomerHas(location4);
+        customer.setItemsCustomerHas(location5);
+        customer.setItemsCustomerHas(location6);
+        Map<String, Integer> testMap = customer.getItemsCustomerHas();
 
+        Map<String, Integer> actualMap = new HashMap<>();
+        actualMap.put("A1", -1);
+
+        Integer actual = customer.getItemQuantity("A1");
 
 
         //assert
+
+        Assert.assertEquals(testMap, actualMap);
+        Assert.assertEquals(1, actual, .001);
 
 
 

@@ -13,23 +13,40 @@ public class Customer {
     "Finish Transaction" - in READ ME notes
      */
 
-    private Map<String, Integer> itemsCustomerHas = new HashMap();
 
-    public Customer(){}
 
-    public void setItemsCustomerHas(String location) {      // Getting location, taking out the item and incrementing number
-       if (itemsCustomerHas.get(location) == null) {
-           itemsCustomerHas.put(location, 0);
-       }
-        Integer number = itemsCustomerHas.get(location);
-        number ++;
-        itemsCustomerHas.put(location, number);
+    public Customer() {
     }
 
-    public Integer getItemQuantity (String location) {
-      return itemsCustomerHas.get(location);
+    public Map<String, Integer> itemsCustomerHas = new HashMap<>();
+
+    public Map<String, Integer> getItemsCustomerHas() {
+        return itemsCustomerHas;
     }
-    public void setInitialItems (String location) {
+
+    public void setItemsCustomerHas(String location) {// Getting location, taking out the item and incrementing number
+
+        //TODO figure out why it resets to 5
+
+        if (itemsCustomerHas.get(location) == null) {
+            itemsCustomerHas.put(location, 0);
+            Integer number = itemsCustomerHas.get(location);
+            number = number + 1;
+            itemsCustomerHas.put(location, number);
+        }
+        else {
+            Integer number = itemsCustomerHas.get(location);
+            number = number + 1;
+            itemsCustomerHas.put(location, number);
+        }
+    }
+
+    public Integer getItemQuantity(String location) {
+        Integer items = itemsCustomerHas.get(location);
+        return items;
+    }
+
+    public void setInitialItems(String location) {
         itemsCustomerHas.put(location, 0);
     }
 
