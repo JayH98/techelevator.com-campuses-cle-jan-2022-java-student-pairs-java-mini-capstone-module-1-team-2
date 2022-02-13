@@ -42,9 +42,9 @@ public class Items implements Vendables {
         return inventoryQuantity;
     }
 
-    public void vendItem(String) {
-        this.inventoryQuantity = inventoryQuantity;
-    }
+//    public void vendItem(String) {
+//        this.inventoryQuantity = inventoryQuantity;
+//    }
 
     public void setItemSound(String itemSound) {
         this.itemSound = itemSound;

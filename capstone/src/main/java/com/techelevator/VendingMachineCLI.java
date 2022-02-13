@@ -3,6 +3,7 @@ package com.techelevator;
 import com.techelevator.view.Menu;
 import com.techelevator.view.Vendables;
 
+import java.math.BigDecimal;
 import java.util.*;
 
 public class VendingMachineCLI {
@@ -31,6 +32,7 @@ public class VendingMachineCLI {
     MoneyTransaction money = new MoneyTransaction();
     Customer customer = new Customer();
     Map<String, Integer> newMapForQuantity = customer.getItemsCustomerHas();
+    
 
 
     public VendingMachineCLI(Menu menu) {
