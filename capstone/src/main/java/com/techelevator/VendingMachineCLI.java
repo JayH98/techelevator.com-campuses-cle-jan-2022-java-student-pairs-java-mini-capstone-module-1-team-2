@@ -37,6 +37,8 @@ public class VendingMachineCLI {
         this.menu = menu;
     }
 
+    // TODO printing exception error when selection is out of bounds (f1)
+    // TODO Print "Quantity Remaining: " and inventory (decrementing) counter
     public void run() {
         while (true) {
             String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);

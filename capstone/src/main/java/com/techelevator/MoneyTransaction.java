@@ -10,6 +10,12 @@ public class MoneyTransaction {
 
     Menu menu = new Menu();
     //ToDo find a way to change balance to BigDecimal
+
+    /*
+    static BigDecimal	valueOf(double val)
+Translates a double into a BigDecimal, using the double's canonical string representation provided by the Double.toString(double) method.
+
+     */
     public double balance = 0.0;
 
     public void transaction(double money) {
