@@ -74,7 +74,6 @@ public class VendingMachineCLI {
                         if (customer.getItemQuantity(selection) == null) {
                             customer.setInitialItems(selection);
                         }
-                        //TODO figure out why reseting to 5
                         if (customer.getItemQuantity(selection) >= 0 && customer.getItemQuantity(selection) < 5) {
                             if (money.getBalance() >= itemPicked.getItemPrice()) {
                                 System.out.println();
