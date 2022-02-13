@@ -11,8 +11,8 @@ public class MoneyTransaction {
  //ToDo find a way to change balance to BigDecimal
     public double balance = 0.0;
 
-    public void Transaction(double money) {
-        balance = getBalance() - money;
+    public void transaction(double money) {
+        balance = balance - money;
 
     }
 
@@ -21,7 +21,37 @@ public class MoneyTransaction {
     }
 
     public void setBalance(double vendingBalance) {
-        balance = vendingBalance;
+        balance += vendingBalance;
+    }
+
+    public int[] giveChange (double money){
+        int quarters = 0;
+        int dimes = 0;
+        int nickels = 0;
+        int[] changeForCustomer = {0, 0, 0};
+
+        if (money <= 0){
+            return changeForCustomer;
+        }
+        if (money > 0){
+            quarters = (int)(money / .25);
+            money = money - (quarters * .25);
+        }
+        if (money > 0){
+            dimes = (int)(money / .10);
+            money = money - (dimes * .10);
+        }
+        if (money > 0){
+            nickels = (int)(money / .5);
+            money = money - (nickels * .5);
+        }
+        changeForCustomer[0] = quarters;
+        changeForCustomer[1] = dimes;
+        changeForCustomer[2] = nickels;
+
+        setBalance(0);
+
+        return changeForCustomer;
     }
 
 

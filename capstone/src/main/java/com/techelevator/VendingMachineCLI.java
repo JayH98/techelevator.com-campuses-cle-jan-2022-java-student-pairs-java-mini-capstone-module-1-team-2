@@ -71,25 +71,33 @@ public class VendingMachineCLI {
 							if (customer.getItemQuantity(selection) == null) {
 								customer.setInitialItems(selection);
 							}
-							if (customer.getItemQuantity(selection) >=0 && customer.getItemQuantity(selection) <5) {
+							if (customer.getItemQuantity(selection) >= 0 && customer.getItemQuantity(selection) < 5) {
 								if (money.getBalance() >= itemPicked.getItemPrice()) {
-									double moneyToSubtract = (money.getBalance()- itemPicked.getItemPrice());
-									money.setBalance(moneyToSubtract);
-									//ToDo add the C1 - C5 items to be able to purchase
+
+									customer.setItemsCustomerHas(selection);
+									double moneyToSubtract = itemPicked.getItemPrice();
+									money.transaction(moneyToSubtract);
+									System.out.println(itemPicked.getItemSound());
+
+
 								} else {
 									System.out.println("You need to enter more money.");
 								}
 							}
+							else System.out.println("Item out of stock");
 						}
+						else if (customerPurchase.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)){
+							//give customer back change
+							//print quarters/whatever
+
+							int[] changeForCustomer = money.giveChange(money.getBalance());
+							System.out.println();
+							System.out.println("Change returned: " + changeForCustomer[0] + " Quarter(s) " + changeForCustomer[1]
+							+ " Dime(s) " + changeForCustomer[2] + " Nickel(s)");
 
 
-
-
-
-
-
-
-
+							break;
+						}
 					}
 			} else if (choice.equals(MAIN_MENU_OPTION_LEAVE)) {
 				System.exit(1);
