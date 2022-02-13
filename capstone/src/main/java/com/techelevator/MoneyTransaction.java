@@ -3,6 +3,7 @@ package com.techelevator;
 import com.techelevator.view.Menu;
 import com.techelevator.view.Vendables;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -29,6 +30,19 @@ Translates a double into a BigDecimal, using the double's canonical string repre
 
     public void setBalance(double vendingBalance) {
         balance += vendingBalance;
+    }
+
+    public String display(double money) {
+        //
+
+        if (money > 0.00 && money < 9.99) {
+            DecimalFormat d1 = new DecimalFormat("#.00");
+            return d1.format(money);
+        }
+        else {
+            DecimalFormat d2 = new DecimalFormat("##.00");
+            return d2.format(money);
+        }
     }
 
     public int[] giveChange(double money) {
