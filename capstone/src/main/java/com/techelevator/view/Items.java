@@ -36,6 +36,7 @@ public class Items implements Vendables {
     public String getItemSound() {
         return itemSound;
     }
+
     @Override
     public int getInventoryQuantity() {
         return inventoryQuantity;

@@ -1,4 +1,5 @@
 package com.techelevator;
+
 import com.techelevator.view.Menu;
 import com.techelevator.view.Vendables;
 
@@ -8,7 +9,13 @@ import java.util.Map;
 public class MoneyTransaction {
 
     Menu menu = new Menu();
- //ToDo find a way to change balance to BigDecimal
+    //ToDo find a way to change balance to BigDecimal
+
+    /*
+    static BigDecimal	valueOf(double val)
+Translates a double into a BigDecimal, using the double's canonical string representation provided by the Double.toString(double) method.
+
+     */
     public double balance = 0.0;
 
     public void transaction(double money) {
@@ -24,25 +31,25 @@ public class MoneyTransaction {
         balance += vendingBalance;
     }
 
-    public int[] giveChange (double money){
+    public int[] giveChange(double money) {
         int quarters = 0;
         int dimes = 0;
         int nickels = 0;
         int[] changeForCustomer = {0, 0, 0};
 
-        if (money <= 0){
+        if (money <= 0) {
             return changeForCustomer;
         }
-        if (money > 0){
-            quarters = (int)(money / .25);
+        if (money > 0) {
+            quarters = (int) (money / .25);
             money = money - (quarters * .25);
         }
-        if (money > 0){
-            dimes = (int)(money / .10);
+        if (money > 0) {
+            dimes = (int) (money / .10);
             money = money - (dimes * .10);
         }
-        if (money > 0){
-            nickels = (int)(money / .5);
+        if (money > 0) {
+            nickels = (int) (money / .5);
             money = money - (nickels * .5);
         }
         changeForCustomer[0] = quarters;
@@ -53,7 +60,6 @@ public class MoneyTransaction {
 
         return changeForCustomer;
     }
-
 
 
 }

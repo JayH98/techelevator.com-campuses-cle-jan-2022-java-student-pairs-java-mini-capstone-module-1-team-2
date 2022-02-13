@@ -3,7 +3,6 @@ package com.techelevator;
 import com.techelevator.view.Menu;
 import com.techelevator.view.Vendables;
 
-import javax.swing.*;
 import java.util.*;
 
 public class VendingMachineCLI {
@@ -15,15 +14,15 @@ public class VendingMachineCLI {
     //	Map<item location, item price/quantity/sound/name>
     Map<String, Vendables> sale = inventory.getMapOfItems(); // = Map of items in vending machine
 
-    private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Items";
-    private static final String MAIN_MENU_OPTION_PURCHASE = "Purchase";
-    private static final String MAIN_MENU_OPTION_LEAVE = "Leave";
+    private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Menu Items";
+    private static final String MAIN_MENU_OPTION_PURCHASE = "Make a Purchase";
+    private static final String MAIN_MENU_OPTION_LEAVE = "Exit";
     private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_ITEMS,
             MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_LEAVE};
 
-    private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Feed Money";
-    private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select Product";
-    private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Finish Transaction";
+    private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Please Feed Money";
+    private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select a Product";
+    private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Complete Transaction";
     private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTION_FEED_MONEY,
             PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION};
 
@@ -34,12 +33,12 @@ public class VendingMachineCLI {
     Map<String, Integer> newMapForQuantity = customer.getItemsCustomerHas();
 
 
-
-
     public VendingMachineCLI(Menu menu) {
         this.menu = menu;
     }
 
+    // TODO printing exception error when selection is out of bounds (f1)
+    // TODO Print "Quantity Remaining: " and inventory (decrementing) counter
     public void run() {
         while (true) {
             String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
@@ -84,7 +83,6 @@ public class VendingMachineCLI {
                                 System.out.println(itemPicked.getItemSound());
                                 System.out.println(customer.getItemQuantity(selection));
 
-
                             } else {
                                 System.out.println("You need to enter more money.");
                             }
@@ -97,8 +95,6 @@ public class VendingMachineCLI {
                         System.out.println();
                         System.out.println("Change returned: " + changeForCustomer[0] + " Quarter(s) " + changeForCustomer[1]
                                 + " Dime(s) " + changeForCustomer[2] + " Nickel(s)");
-
-
                         break;
                     }
                 }

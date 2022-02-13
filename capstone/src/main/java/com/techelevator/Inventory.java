@@ -15,6 +15,7 @@ public class Inventory {
     Map<String, Vendables> mapOfItems = new HashMap<>();        // Creating new Map<locations, Vendables(interface)> of items in vending machine
 
     Items items = new Items();
+
     public Inventory() {
 
         String vendingMachineMenuPath = "vendingmachine.csv";       // Calling the csv file that contains vendadable items
