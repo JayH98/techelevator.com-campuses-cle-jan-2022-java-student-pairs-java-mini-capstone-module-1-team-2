@@ -4,6 +4,8 @@ import com.techelevator.view.Menu;
 import com.techelevator.view.Vendables;
 
 import java.math.BigDecimal;
+import java.math.MathContext;
+import java.math.RoundingMode;
 import java.util.*;
 
 public class VendingMachineCLI {
@@ -32,7 +34,7 @@ public class VendingMachineCLI {
     MoneyTransaction money = new MoneyTransaction();
     Customer customer = new Customer();
     Map<String, Integer> newMapForQuantity = customer.getItemsCustomerHas();
-    
+
 
 
     public VendingMachineCLI(Menu menu) {
@@ -59,7 +61,8 @@ public class VendingMachineCLI {
                 // do purchase
                 while (true) {
                     System.out.println();
-                    System.out.println("Current money left in machine: $" + money.getBalance());
+                    new BigDecimal(money.getBalance()).round(new MathContext(3, RoundingMode.HALF_UP));
+                    System.out.println("Current money left in machine: $" + new BigDecimal(money.getBalance()).round(new MathContext(4, RoundingMode.HALF_UP)));
                     // all vending math in here!!!
                     String customerPurchase = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
                     if (customerPurchase.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
