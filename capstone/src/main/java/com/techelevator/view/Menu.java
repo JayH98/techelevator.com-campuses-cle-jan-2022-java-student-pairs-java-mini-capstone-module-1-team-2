@@ -9,10 +9,12 @@ import java.util.Scanner;
 
 public class Menu {
 
+// TODO comment all of these proccesses
+
     private PrintWriter out;
     private Scanner in;
 
-//	Inventory inventory = new Inventory();
+//Inventory inventory = new Inventory();
 
     public Menu(InputStream input, OutputStream output) {
         this.out = new PrintWriter(output);
@@ -40,7 +42,7 @@ public class Menu {
                 choice = options[selectedOption - 1];
             }
         } catch (NumberFormatException e) {
-            // eat the exception, an error message will be displayed below since choice will be null
+// eat the exception, an error message will be displayed below since choice will be null
         }
         if (choice == null) {
             out.println(System.lineSeparator() + "*** " + userInput + " is not a valid option ***" + System.lineSeparator());
@@ -58,7 +60,8 @@ public class Menu {
         out.flush();
     }
 
-    public double getUsersMoney(String askForMoney) {        // Sets valid values for user money in double
+    public double getUsersMoney(String askForMoney) {
+// Sets valid values for user money in double
         double money = 0.0;
         while (true) {
             try {
@@ -70,7 +73,8 @@ public class Menu {
                     System.out.println("Please only enter dollar bills of $1, $2, $5, $10.");
                     continue;
                 }
-            } catch (Exception e) {        // prints error message for none number inputs
+            } catch (Exception e) {
+//prints error message for none number inputs
                 System.out.println("You entered an invalid money amount. Please try again.");
                 continue;
             }

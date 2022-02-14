@@ -6,13 +6,12 @@ import java.util.List;
 import java.util.Map;
 
 public class Customer {
-    /*
+/*
     Handle inputs & outputs (print statements)
     choosing item
     receive items
     "Finish Transaction" - in READ ME notes
-     */
-
+*/
 
 
     public Customer() {
@@ -24,9 +23,10 @@ public class Customer {
         return itemsCustomerHas;
     }
 
-    public void setItemsCustomerHas(String location) {// Getting location, taking out the item and incrementing number
+//Getting location, taking out the item and incrementing number
+    public void setItemsCustomerHas(String location) {
 
-        //TODO figure out why it resets to 5
+//TODO figure out why it resets to 5
 
         if (itemsCustomerHas.get(location) == null) {
             itemsCustomerHas.put(location, 0);

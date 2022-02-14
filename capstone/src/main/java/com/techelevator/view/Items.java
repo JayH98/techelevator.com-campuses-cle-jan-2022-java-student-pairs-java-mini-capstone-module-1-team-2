@@ -6,10 +6,16 @@ public class Items implements Vendables {
     private String itemSound;
     private int inventoryQuantity;
 
+// Constructor for our implemented Vendables with getters and setters
+// Used by each item group (Candy, Chips, Drinks, and Gum)
+// Called by Inventory Class to Map mapOfItems
+
     public Items(String itemName, double itemPrice, String itemSound, int inventoryQuantity) {
         this.itemName = itemName;
         this.itemPrice = itemPrice;
         this.itemSound = itemSound;
+
+//Sets all items to a number (Candy, Chips, Drinks, and Gum)
         this.inventoryQuantity = inventoryQuantity;
     }
 
@@ -37,11 +43,13 @@ public class Items implements Vendables {
         return itemSound;
     }
 
+//Lets us set each item to 5 for decreasing on its own (Candy, Chips, Drinks, and Gum)
     @Override
     public int getInventoryQuantity() {
         return inventoryQuantity;
     }
 
+//   OLD CODE
 //    public void vendItem(String) {
 //        this.inventoryQuantity = inventoryQuantity;
 //    }

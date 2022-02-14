@@ -9,81 +9,82 @@ import java.math.RoundingMode;
 import java.util.*;
 
 public class VendingMachineCLI {
-// creating an instance of the inventory in the vending machine class
+//creating an instance of the inventory in the vending machine class
 
     Inventory inventory = new Inventory();
     private List<String[]> displayForVendingMachine = inventory.getListOfInventoryInStringArrays();
 
-    //	Map<item location, item price/quantity/sound/name>
-    Map<String, Vendables> sale = inventory.getMapOfItems(); // = Map of items in vending machine
-    // Output messages to the user
+//Map<item location, item price/quantity/sound/name>
+    Map<String, Vendables> sale = inventory.getMapOfItems();
+//= Map of items in vending machine
+//Output messages to the user
     private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Menu Items";
     private static final String MAIN_MENU_OPTION_PURCHASE = "Make a Purchase";
     private static final String MAIN_MENU_OPTION_LEAVE = "Exit";
-    // constructor to string above for output messages
+//constructor to string above for output messages
     private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_ITEMS,
             MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_LEAVE};
 
-    //Display options #2 output message for purchases and final/finish of transactions
+//Display options #2 output message for purchases and final/finish of transactions
     private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Please Feed Money";
     private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select a Product";
     private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Complete Transaction";
-    //constructor for above messages
+//constructor for above messages
     private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTION_FEED_MONEY,
             PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION};
-//  putting instances for the menu and money transactions classes (bucket)
+//putting instances for the menu and money transactions classes (bucket)
 
     private Menu menu;
     MoneyTransaction money = new MoneyTransaction();
     Customer customer = new Customer();
     Map<String, Integer> newMapForQuantity = customer.getItemsCustomerHas();
 
-// calling on the menu from the vendingmachine class
+//calling on the menu from the vendingmachine class
 
     public VendingMachineCLI(Menu menu) {
         this.menu = menu;
     }
-    //below .. runs the program to display the instructions to user
-    // TODO printing exception error when selection is out of bounds (f1)
-    // TODO Print "Quantity Remaining: " and inventory (decrementing) counter
+//below .. runs the program to display the instructions to user
+//TODO printing exception error when selection is out of bounds (f1)
+//TODO Print "Quantity Remaining: " and inventory (decrementing) counter
     public void run() {
         while (true) {
             String choice = (String) menu.getChoiceFromOptions(MAIN_MENU_OPTIONS);
 //displays option 1
             if (choice.equals(MAIN_MENU_OPTION_DISPLAY_ITEMS)) {
 
-//				inventory.getDisplay; String of items at index 0 is A1-D4,
-//				index 1 is the items name, index 2 is the price
+//inventory.getDisplay; String of items at index 0 is A1-D4,
+//index 1 is the items name, index 2 is the price
 
                 for (String[] stringOfItems : displayForVendingMachine) {
                     System.out.println(" * " + stringOfItems[0] + " * "
                             + stringOfItems[1] + "  " + "  $" + stringOfItems[2]);
                 }
-// displays option 2
+//displays option 2
             } else if (choice.equals(MAIN_MENU_OPTION_PURCHASE)) {
-                // do purchase
+//do purchase
                 while (true) {
                     System.out.println();
-//                    new BigDecimal(money.getBalance()).round(new MathContext(2, RoundingMode.HALF_UP));
-                    //this is beginning balance of 0
+// new BigDecimal(money.getBalance()).round(new MathContext(2, RoundingMode.HALF_UP));
+//this is beginning balance of 0
                     System.out.println("Current money left in machine: $" + money.display(money.getBalance()));
-                    // all vending math in here!!!
+//all vending math in here!!!
                     String customerPurchase = (String) menu.getChoiceFromOptions(PURCHASE_MENU_OPTIONS);
-                    //displays new options 1 (see below) - money is added by user
+//displays new options 1 (see below) - money is added by user
                     if (customerPurchase.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
                         System.out.print("Please only enter dollar bills of $1, $2, $5, $10.");
                         double moneyReceived = menu.getUsersMoney("Please enter amount");
                         money.setBalance(moneyReceived);
-                        // new balance is displayed
-                        // this displays new option 2 (see below) .. also changes everything to
-                        // upper case and links to inventory to decrease item amounts (not working yet)
+//new balance is displayed
+//this displays new option 2 (see below) .. also changes everything to
+//upper case and links to inventory to decrease item amounts (not working yet)
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
                         String selection = menu.userString("Please select the item you'd like to purchase");
                         selection = selection.toUpperCase();
                         Map<String, Vendables> slots = inventory.mapOfItems;
                         Vendables itemPicked = slots.get(selection);
 
-                        // this is for invalid entry??
+//this is for invalid entry??
 
                         if (customer.getItemQuantity(selection) == null) {
                             customer.setInitialItems(selection);
@@ -98,8 +99,8 @@ public class VendingMachineCLI {
                                 System.out.println(itemPicked.getItemSound());
                                 System.out.println(customer.getItemQuantity(selection));
 
-                                // if you do not have enough money put in for purchase the following message is displayed
-                                // -- loops back to feed money
+//if you do not have enough money put in for purchase the following message is displayed
+//-- loops back to feed money
 
 
                             } else {
@@ -112,27 +113,27 @@ public class VendingMachineCLI {
 
 
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
-                        //give customer back change
-                        //print quarters/whatever
+//give customer back change
+//print quarters/whatever
 //TODO -- Fix the math HERE
 
                         int[] changeForCustomer = money.giveChange(money.getBalance());
                         System.out.println();
                         System.out.println("Change returned: " + changeForCustomer[0] + " Quarter(s) " + changeForCustomer[1]
                                 + " Dime(s) " + changeForCustomer[2] + " Nickel(s)");
-                        // loops back to first 3 options from the display to the exit the program
+//loops back to first 3 options from the display to the exit the program
 
                         break;
                     }
                 }
-                // this ends the program setting up for next user/customer
+//this ends the program setting up for next user/customer
 
             } else if (choice.equals(MAIN_MENU_OPTION_LEAVE)) {
                 System.exit(1);
             }
         }
     }
-// this provides the input from Menu related to customer input???
+//this provides the input from Menu related to customer input???
     public static void main(String[] args) {
         Menu menu = new Menu(System.in, System.out);
         VendingMachineCLI cli = new VendingMachineCLI(menu);

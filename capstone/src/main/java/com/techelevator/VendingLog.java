@@ -1,6 +1,8 @@
 package com.techelevator;
 
 public class VendingLog {
-    //Writes to our log
+
+//TODO make our log
+//Writes to our log
 
 }

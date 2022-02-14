@@ -10,13 +10,14 @@ import java.util.Map;
 public class MoneyTransaction {
 
     Menu menu = new Menu();
-    //ToDo find a way to change balance to BigDecimal
+//ToDo find a way to change balance to BigDecimal?
 
-    /*
-    static BigDecimal	valueOf(double val)
+/*
+static BigDecimal	valueOf(double val)
 Translates a double into a BigDecimal, using the double's canonical string representation provided by the Double.toString(double) method.
+*/
 
-     */
+//This starts the money at $0.00 (approx. VendingMachineCLI line 69)
     public double balance = 0.0;
 
     public void transaction(double money) {
@@ -28,12 +29,14 @@ Translates a double into a BigDecimal, using the double's canonical string repre
         return balance;
     }
 
+//After user inputs money gives the new $ amount ( if statement approx. VendingMachineCLI line 73)
     public void setBalance(double vendingBalance) {
         balance += vendingBalance;
     }
 
     public String display(double money) {
-        //
+
+//Added formatting for decimals that gives us 2 places after decimal
 
         if (money > 0.00 && money < 9.99) {
             DecimalFormat d1 = new DecimalFormat("#.00");
@@ -45,6 +48,9 @@ Translates a double into a BigDecimal, using the double's canonical string repre
         }
     }
 
+
+//Declare how many Q, D, N are given as change versus their value
+//Sets up change as objects
     public int[] giveChange(double money) {
         int quarters = 0;
         int dimes = 0;
@@ -54,6 +60,8 @@ Translates a double into a BigDecimal, using the double's canonical string repre
         if (money <= 0) {
             return changeForCustomer;
         }
+
+//The math for the change value
         if (money > 0) {
             quarters = (int) (money / .25);
             money = money - (quarters * .25);
@@ -63,6 +71,8 @@ Translates a double into a BigDecimal, using the double's canonical string repre
             money = money - (dimes * .10);
         }
         if (money > 0) {
+
+//TODO maybe should be 0.05
             nickels = (int) (money / .5);
             money = money - (nickels * .5);
         }
@@ -70,17 +80,22 @@ Translates a double into a BigDecimal, using the double's canonical string repre
         changeForCustomer[1] = dimes;
         changeForCustomer[2] = nickels;
 
+//TODO what does line 84 do?
         setBalance(0);
 
         return changeForCustomer;
+
+//After change is returned the customer balance is back to $0 (approx.MoneyTransaction line 59)
     }
 
 
 }
 
+//TODO figure out what to do with this code
+
 //    BigDecimal big = new BigDecimal(10.25);
 //    BigDecimal small = new BigDecimal(0.5);
-//if (big.compareTo(small) == 0) {
+// if (big.compareTo(small) == 0) {
 //        System.out.println("Values are equal");
 //        }
 //        else if (big.compareTo(small) < 0) {

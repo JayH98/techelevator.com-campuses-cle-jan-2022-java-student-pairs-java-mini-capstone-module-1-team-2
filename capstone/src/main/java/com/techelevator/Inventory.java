@@ -10,22 +10,26 @@ import java.util.*;
 
 public class Inventory {
 
-    //Where vending machine exists
-    List<String[]> listOfInventoryInStringArrays = new ArrayList<>();   // Array of Strings for items in vending machine
-    Map<String, Vendables> mapOfItems = new HashMap<>();        // Creating new Map<locations, Vendables(interface)> of items in vending machine
+//Where vending machine exists
+
+//Array of Strings for items in vending machine
+    List<String[]> listOfInventoryInStringArrays = new ArrayList<>();
+//Creating new Map<locations, Vendables(interface)> of items in vending machine
+    Map<String, Vendables> mapOfItems = new HashMap<>();
 
     Items items = new Items();
 
     public Inventory() {
 
-        String vendingMachineMenuPath = "vendingmachine.csv";       // Calling the csv file that contains vendadable items
+//Calling the csv file that contains vendadable items
+        String vendingMachineMenuPath = "vendingmachine.csv";
         File menuFile = new File(vendingMachineMenuPath);
         String line = "";
 //Reads the user's input
         try (Scanner menuInput = new Scanner(menuFile)) {
             while (menuInput.hasNextLine()) {
                 line = menuInput.nextLine();
-                // Should look like  Location | Item name | Price | Item Class
+//Should look like  Location | Item name | Price | Item Class
                 if (line.length() > 0 && line.contains("|")) {
                     listOfInventoryInStringArrays.add(line.split("\\|"));
                 }
@@ -34,7 +38,8 @@ public class Inventory {
             System.exit(1);
         }
 
-        for (String[] strings : listOfInventoryInStringArrays) {     // Array of Strings that contains the menu items
+//Array of Strings that contains the menu items
+        for (String[] strings : listOfInventoryInStringArrays) {
             double newPrice = Double.parseDouble(strings[2]);
             for (int i = 0; i < 4; i++) {
                 if (strings[3].equals("Chip")) {
@@ -53,7 +58,8 @@ public class Inventory {
             }
         }
     }
-//
+
+//OLD CODE
 //    public Vendables pickItem(String itemLocation) {
 //        Vendables itemPicked = mapOfItems.get(itemLocation);
 //        int itemQuantity = itemPicked.getInventoryQuantity();
