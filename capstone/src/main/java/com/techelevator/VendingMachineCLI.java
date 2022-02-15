@@ -73,7 +73,7 @@ public class VendingMachineCLI {
 //displays new options 1 (see below) - money is added by user
                     if (customerPurchase.equals(PURCHASE_MENU_OPTION_FEED_MONEY)) {
                         System.out.print("Please only enter dollar bills of $1, $2, $5, $10.");
-                        double moneyReceived = menu.getUsersMoney("Please enter amount");
+                        double moneyReceived = menu.getUsersMoney("Please enter amount $ ");
                         money.setBalance(moneyReceived);
 //new balance is displayed
 //this displays new option 2 (see below) .. also changes everything to
@@ -115,7 +115,7 @@ public class VendingMachineCLI {
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 //give customer back change
 //print quarters/whatever
-//TODO -- Fix the math HERE
+//TODO -- Fix the math HERE for nickles (maybe fixed when changed MoneyTransaction to 0.05)
 
                         int[] changeForCustomer = money.giveChange(money.getBalance());
                         System.out.println();

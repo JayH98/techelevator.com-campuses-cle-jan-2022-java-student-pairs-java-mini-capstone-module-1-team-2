@@ -10,7 +10,7 @@ import java.util.Map;
 public class MoneyTransaction {
 
     Menu menu = new Menu();
-//ToDo find a way to change balance to BigDecimal?
+//ToDo find a way to change balance to BigDecimal? (maybe for log)
 
 /*
 static BigDecimal	valueOf(double val)
@@ -72,15 +72,16 @@ Translates a double into a BigDecimal, using the double's canonical string repre
         }
         if (money > 0) {
 
-//TODO maybe should be 0.05
-            nickels = (int) (money / .5);
-            money = money - (nickels * .5);
+
+            nickels = (int) (money / .05);
+            money = money - (nickels * .05);
         }
         changeForCustomer[0] = quarters;
         changeForCustomer[1] = dimes;
         changeForCustomer[2] = nickels;
 
-//TODO what does line 84 do?
+
+//Set objects Q,D,N back to 0 and returns array we made in menu logic at the same time
         setBalance(0);
 
         return changeForCustomer;
@@ -91,7 +92,7 @@ Translates a double into a BigDecimal, using the double's canonical string repre
 
 }
 
-//TODO figure out what to do with this code
+//TODO figure out what to do with this code (from Ben as reference, leave it)
 
 //    BigDecimal big = new BigDecimal(10.25);
 //    BigDecimal small = new BigDecimal(0.5);
