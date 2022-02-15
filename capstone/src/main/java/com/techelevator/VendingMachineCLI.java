@@ -131,7 +131,7 @@ public class VendingMachineCLI {
 //this ends the program setting up for next user/customer
 
             } else if (choice.equals(MAIN_MENU_OPTION_LEAVE)) {
-                System.exit(1);
+                System.exit(0);
             }
         }
     }

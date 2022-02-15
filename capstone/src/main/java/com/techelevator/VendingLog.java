@@ -7,13 +7,13 @@ import java.io.IOException;
 public class VendingLog {
     //TODO make our log write out customers actions ??How??
 //Writes to our log
-    public void main(String[] args) {
+    public void log() {
         try {
             BufferedWriter writer = new BufferedWriter(new FileWriter("VendingMachineLog.txt"));
             writer.write("");
             writer.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.exit(1);
         }
 
     }
