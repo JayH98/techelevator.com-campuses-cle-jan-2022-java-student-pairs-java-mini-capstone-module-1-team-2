@@ -43,16 +43,12 @@ public class Items implements Vendables {
         return itemSound;
     }
 
-//Lets us set each item to 5 for decreasing on its own (Candy, Chips, Drinks, and Gum)
+
+// Overrides for vendables
     @Override
     public int getInventoryQuantity() {
         return inventoryQuantity;
     }
-
-//   OLD CODE
-//    public void vendItem(String) {
-//        this.inventoryQuantity = inventoryQuantity;
-//    }
 
     public void setItemSound(String itemSound) {
         this.itemSound = itemSound;

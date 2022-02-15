@@ -60,6 +60,9 @@ Translates a double into a BigDecimal, using the double's canonical string repre
         if (money <= 0) {
             return changeForCustomer;
         }
+// This will fix rounding error
+
+        money += .001;
 
 //The math for the change value
         if (money > 0) {
@@ -82,13 +85,15 @@ Translates a double into a BigDecimal, using the double's canonical string repre
 
 
 //Set objects Q,D,N back to 0 and returns array we made in menu logic at the same time
-        setBalance(0);
+        resetBalance();
 
         return changeForCustomer;
 
 //After change is returned the customer balance is back to $0 (approx.MoneyTransaction line 59)
     }
-
+    public void resetBalance() {
+       balance = 0;
+    }
 
 }
 

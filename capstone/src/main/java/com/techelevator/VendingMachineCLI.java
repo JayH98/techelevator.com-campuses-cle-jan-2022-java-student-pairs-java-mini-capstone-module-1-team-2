@@ -56,6 +56,8 @@ public class VendingMachineCLI {
 //inventory.getDisplay; String of items at index 0 is A1-D4,
 //index 1 is the items name, index 2 is the price
 
+// ToDo need to reformat display to show remaining inventory in slot with sold out
+
                 for (String[] stringOfItems : displayForVendingMachine) {
                     System.out.println(" * " + stringOfItems[0] + " * "
                             + stringOfItems[1] + "  " + "  $" + stringOfItems[2]);
@@ -84,7 +86,7 @@ public class VendingMachineCLI {
                         Map<String, Vendables> slots = inventory.mapOfItems;
                         Vendables itemPicked = slots.get(selection);
 
-//this is for invalid entry??
+// this checks to see if there is any selection in the map or if not sets to 0.
 
                         if (customer.getItemQuantity(selection) == null) {
                             customer.setInitialItems(selection);
@@ -115,7 +117,7 @@ public class VendingMachineCLI {
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
 //give customer back change
 //print quarters/whatever
-//TODO -- Fix the math HERE for nickles (maybe fixed when changed MoneyTransaction to 0.05)
+
 
                         int[] changeForCustomer = money.giveChange(money.getBalance());
                         System.out.println();
@@ -133,7 +135,9 @@ public class VendingMachineCLI {
             }
         }
     }
-//this provides the input from Menu related to customer input???
+//this is the main run method. This starts the whole process ... it tell the compiler to
+//create a new vending machine
+
     public static void main(String[] args) {
         Menu menu = new Menu(System.in, System.out);
         VendingMachineCLI cli = new VendingMachineCLI(menu);
