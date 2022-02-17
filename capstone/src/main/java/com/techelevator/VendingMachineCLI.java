@@ -14,22 +14,22 @@ public class VendingMachineCLI {
     Inventory inventory = new Inventory();
     private List<String[]> displayForVendingMachine = inventory.getListOfInventoryInStringArrays();
 
-//Map<item location, item price/quantity/sound/name>
+    //Map<item location, item price/quantity/sound/name>
     Map<String, Vendables> sale = inventory.getMapOfItems();
-//= Map of items in vending machine
+    //= Map of items in vending machine
 //Output messages to the user
     private static final String MAIN_MENU_OPTION_DISPLAY_ITEMS = "Display Vending Machine Menu Items";
     private static final String MAIN_MENU_OPTION_PURCHASE = "Make a Purchase";
     private static final String MAIN_MENU_OPTION_LEAVE = "Exit";
-//constructor to string above for output messages
+    //constructor to string above for output messages
     private static final String[] MAIN_MENU_OPTIONS = {MAIN_MENU_OPTION_DISPLAY_ITEMS,
             MAIN_MENU_OPTION_PURCHASE, MAIN_MENU_OPTION_LEAVE};
 
-//Display options #2 output message for purchases and final/finish of transactions
+    //Display options #2 output message for purchases and final/finish of transactions
     private static final String PURCHASE_MENU_OPTION_FEED_MONEY = "Please Feed Money";
     private static final String PURCHASE_MENU_OPTION_SELECT_PRODUCT = "Select a Product";
     private static final String PURCHASE_MENU_OPTION_FINISH_TRANSACTION = "Complete Transaction";
-//constructor for above messages
+    //constructor for above messages
     private static final String[] PURCHASE_MENU_OPTIONS = {PURCHASE_MENU_OPTION_FEED_MONEY,
             PURCHASE_MENU_OPTION_SELECT_PRODUCT, PURCHASE_MENU_OPTION_FINISH_TRANSACTION};
 //putting instances for the menu and money transactions classes (bucket)
@@ -44,7 +44,8 @@ public class VendingMachineCLI {
     public VendingMachineCLI(Menu menu) {
         this.menu = menu;
     }
-//below .. runs the program to display the instructions to user
+
+    //below .. runs the program to display the instructions to user
 //TODO printing exception error when selection is out of bounds (f1)
 //TODO Print "Quantity Remaining: " and inventory (decrementing) counter
     public void run() {
@@ -81,40 +82,40 @@ public class VendingMachineCLI {
 //this displays new option 2 (see below) .. also changes everything to
 //upper case and links to inventory to decrease item amounts (not working yet)
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
-                       try {
-                           String selection = menu.userString("Please select the item you'd like to purchase");
-                           selection = selection.toUpperCase();
-                           Map<String, Vendables> slots = inventory.mapOfItems;
-                           Vendables itemPicked = slots.get(selection);
+                        try {
+                            String selection = menu.userString("Please select the item you'd like to purchase");
+                            selection = selection.toUpperCase();
+                            Map<String, Vendables> slots = inventory.mapOfItems;
+                            Vendables itemPicked = slots.get(selection);
 
 // this checks to see if there is any selection in the map or if not sets to 0.
 
-                           if (customer.getItemQuantity(selection) == null) {
-                               customer.setInitialItems(selection);
-                           }
-                           if (customer.getItemQuantity(selection) >= 0 && customer.getItemQuantity(selection) < 5) {
-                               if (money.getBalance() >= itemPicked.getItemPrice()) {
-                                   System.out.println();
+                            if (customer.getItemQuantity(selection) == null) {
+                                customer.setInitialItems(selection);
+                            }
+                            if (customer.getItemQuantity(selection) >= 0 && customer.getItemQuantity(selection) < 5) {
+                                if (money.getBalance() >= itemPicked.getItemPrice()) {
+                                    System.out.println();
 
-                                   customer.setItemsCustomerHas(selection);
-                                   double moneyToSubtract = itemPicked.getItemPrice();
-                                   money.transaction(moneyToSubtract);
-                                   System.out.println(itemPicked.getItemSound());
-                                   System.out.println(customer.getItemQuantity(selection));
+                                    customer.setItemsCustomerHas(selection);
+                                    double moneyToSubtract = itemPicked.getItemPrice();
+                                    money.transaction(moneyToSubtract);
+                                    System.out.println(itemPicked.getItemSound());
+                                    System.out.println(customer.getItemQuantity(selection));
 
 //if you do not have enough money put in for purchase the following message is displayed
 //-- loops back to feed money
 
 
-                               } else {
-                                   System.out.println("You need to enter more money.");
-                               }
+                                } else {
+                                    System.out.println("You need to enter more money.");
+                                }
 
 
-                           } else System.out.println("Item out of stock");
-                       } catch (Exception e) {
-                           System.out.println("Please enter valid input");
-                       }
+                            } else System.out.println("Item out of stock");
+                        } catch (Exception e) {
+                            System.out.println("Please enter valid input");
+                        }
 
 
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {

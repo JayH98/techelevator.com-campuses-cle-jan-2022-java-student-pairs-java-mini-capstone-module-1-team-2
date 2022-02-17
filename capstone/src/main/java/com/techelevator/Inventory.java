@@ -16,6 +16,8 @@ public class Inventory {
     List<String[]> listOfInventoryInStringArrays = new ArrayList<>();
 //Creating new Map<locations, Vendables(interface)> of items in vending machine
     Map<String, Vendables> mapOfItems = new HashMap<>();
+    //TODO maybe change to list of vendables in map
+
 
     Items items = new Items();
 
@@ -39,6 +41,8 @@ public class Inventory {
         }
 
 //Array of Strings that contains the menu items
+
+        //TODO remove item sound from map population
         for (String[] strings : listOfInventoryInStringArrays) {
             double newPrice = Double.parseDouble(strings[2]);
             for (int i = 0; i < 4; i++) {

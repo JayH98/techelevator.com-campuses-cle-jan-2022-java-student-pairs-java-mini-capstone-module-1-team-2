@@ -19,6 +19,8 @@ public class Items implements Vendables {
         this.inventoryQuantity = inventoryQuantity;
     }
 
+    //TODO change constructor to set itemsound and take out of parameters
+
     public Items() {
 
     }
