@@ -19,17 +19,14 @@ public class CustomerTest {
         //arrange
         Customer customer = new Customer();
 
-
-
-
         String location1 = "A1";
         String location2 = "A1";
         String location3 = "A1";
         String location4 = "A1";
         String location5 = "A1";
         String location6 = "A1";
-        //act
 
+        //act
         customer.setItemsCustomerHas(location1);
         customer.setItemsCustomerHas(location2);
         customer.setItemsCustomerHas(location3);
@@ -45,13 +42,8 @@ public class CustomerTest {
 
 
         //assert
-
         Assert.assertEquals(testMap, actualMap);
         Assert.assertEquals(1, actual, .001);
-
-
-
-
 
     }
 

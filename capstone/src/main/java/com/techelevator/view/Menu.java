@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-// TODO comment all of these proccesses
+// TODO comment all of these proccesses (maybe?)
 
     private PrintWriter out;
     private Scanner in;

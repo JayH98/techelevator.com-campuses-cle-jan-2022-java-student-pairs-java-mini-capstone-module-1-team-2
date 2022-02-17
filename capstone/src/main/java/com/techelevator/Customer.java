@@ -26,7 +26,7 @@ public class Customer {
 //Getting location, taking out the item and incrementing number
     public void setItemsCustomerHas(String location) {
 
-//TODO figure out why it resets to 5
+//TODO figure out why it resets to 5 (already fixed)
 
         if (itemsCustomerHas.get(location) == null) {
             itemsCustomerHas.put(location, 0);
