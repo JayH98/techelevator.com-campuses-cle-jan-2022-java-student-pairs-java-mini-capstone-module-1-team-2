@@ -79,37 +79,40 @@ public class VendingMachineCLI {
 //this displays new option 2 (see below) .. also changes everything to
 //upper case and links to inventory to decrease item amounts (not working yet)
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_SELECT_PRODUCT)) {
-                        String selection = menu.userString("Please select the item you'd like to purchase");
-                        selection = selection.toUpperCase();
-                        Map<String, Vendables> slots = inventory.mapOfItems;
-                        Vendables itemPicked = slots.get(selection);
+                       try {
+                           String selection = menu.userString("Please select the item you'd like to purchase");
+                           selection = selection.toUpperCase();
+                           Map<String, Vendables> slots = inventory.mapOfItems;
+                           Vendables itemPicked = slots.get(selection);
 
 //this is for invalid entry??
 
-                        if (customer.getItemQuantity(selection) == null) {
-                            customer.setInitialItems(selection);
-                        }
-                        if (customer.getItemQuantity(selection) >= 0 && customer.getItemQuantity(selection) < 5) {
-                            if (money.getBalance() >= itemPicked.getItemPrice()) {
-                                System.out.println();
+                           if (customer.getItemQuantity(selection) == null) {
+                               customer.setInitialItems(selection);
+                           }
+                           if (customer.getItemQuantity(selection) >= 0 && customer.getItemQuantity(selection) < 5) {
+                               if (money.getBalance() >= itemPicked.getItemPrice()) {
+                                   System.out.println();
 
-                                customer.setItemsCustomerHas(selection);
-                                double moneyToSubtract = itemPicked.getItemPrice();
-                                money.transaction(moneyToSubtract);
-                                System.out.println(itemPicked.getItemSound());
-                                System.out.println(customer.getItemQuantity(selection));
+                                   customer.setItemsCustomerHas(selection);
+                                   double moneyToSubtract = itemPicked.getItemPrice();
+                                   money.transaction(moneyToSubtract);
+                                   System.out.println(itemPicked.getItemSound());
+                                   System.out.println(customer.getItemQuantity(selection));
 
 //if you do not have enough money put in for purchase the following message is displayed
 //-- loops back to feed money
 
 
-                            } else {
-                                System.out.println("You need to enter more money.");
-                            }
+                               } else {
+                                   System.out.println("You need to enter more money.");
+                               }
 
 
-                        } else System.out.println("Item out of stock");
-
+                           } else System.out.println("Item out of stock");
+                       } catch (Exception e) {
+                           System.out.println("Please enter valid input");
+                       }
 
 
                     } else if (customerPurchase.equals(PURCHASE_MENU_OPTION_FINISH_TRANSACTION)) {
